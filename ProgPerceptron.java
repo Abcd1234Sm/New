@@ -10,6 +10,35 @@ public class ProgPerceptron
 	{
 		System.out.println("import java.io.*;");
 	}
+	public static int keywordstack(String key)
+	{
+		String array[] = {
+                 "abstract",  "assert",       "boolean",    "break",      "byte",      "case",
+                 "catch",     "char",         "class",      "const",     "continue",
+                 "default",   "do",           "double",     "else",      "extends",
+                 "false",     "final",        "finally",    "float",     "for",
+                 "goto",      "if",           "implements", "import",    "instanceof",
+                 "int",       "interface",    "long",       "native",    "new",
+                 "null",      "package",      "private",    "protected", "public",
+                 "return",    "short",        "static",     "strictfp",  "super",
+                 "switch",    "synchronized", "this",       "throw",     "throws",
+                 "transient", "true",         "try",        "void",      "volatile",
+                 "while"
+             };
+             int flag=0;
+             for(int i=0;i<array.length;i++)
+             {
+				 if(key.equals(array[i])==true)
+				 flag++;
+			
+			 }
+			 if(flag>0)
+			 return 1;
+			 else 
+			 return 0;
+		 }
+
+		
 	//----------------SCANNER OBJECT CREATION----------------------
 	public void Sobj()
 	{
@@ -116,6 +145,7 @@ public class ProgPerceptron
 		System.out.println("b=c;");
 		
 	}
+	//------------------TO ADD TWO NUMBERS--------------------
 	public void add()
 	{
 		System.out.println("c=a+b;");
@@ -250,6 +280,7 @@ public class ProgPerceptron
 		classname=sc.nextLine();
 		for(int i=1;i<classname.length();i++)		
 		{
+			int call=keywordstack(classname);
 			if(((int)classname.charAt(0))<65 || ((int)classname.charAt(0))>122 || (((int)classname.charAt(0)>90) && ((int)classname.charAt(0)<97)))
 				{
 				i=0;
@@ -264,7 +295,9 @@ public class ProgPerceptron
 				System.out.println("What do you want to name your class ?");
 		        classname=sc.nextLine();
 		     }
-		     else if(classname.equals("class")==true || classname.equals("void")==true || classname.equals("static")==true)
+		     
+		     //else if(classname.equals("class")==true || classname.equals("void")==true || classname.equals("static")==true)
+		     else if(call==1)
 		     {
 				i=0;
 				System.out.println("A class name cannot be a reserved keyword");
